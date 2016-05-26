@@ -180,6 +180,9 @@ public class AcquisitionSvcImpl implements AcquisitionSvc {
 				start = 0;
 				String link;
 				log.info(s);
+				//处理换行问题，多了一个\r
+				linkStart = linkStart.replace("\r\n", "\n");
+				System.out.println(s.contains(linkStart));
 				while ((start = s.indexOf(linkStart, start)) != -1) {
 					start += linkStart.length();
 					end = s.indexOf(linkEnd, start);
@@ -469,3 +472,5 @@ public class AcquisitionSvcImpl implements AcquisitionSvc {
 		}
 	}
 }
+
+
